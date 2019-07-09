@@ -201,10 +201,10 @@
             // 
             // CalculationTextBox
             // 
-            this.CalculationTextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CalculationTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.CalculationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.CalculationTextBox.ForeColor = System.Drawing.Color.White;
-            this.CalculationTextBox.Location = new System.Drawing.Point(0, 0);
+            this.CalculationTextBox.ForeColor = System.Drawing.Color.Black;
+            this.CalculationTextBox.Location = new System.Drawing.Point(0, 12);
             this.CalculationTextBox.MaxLength = 10;
             this.CalculationTextBox.Name = "CalculationTextBox";
             this.CalculationTextBox.ReadOnly = true;
@@ -214,10 +214,10 @@
             // 
             // ResultTextBox
             // 
-            this.ResultTextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ResultTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.ResultTextBox.ForeColor = System.Drawing.Color.White;
-            this.ResultTextBox.Location = new System.Drawing.Point(0, 71);
+            this.ResultTextBox.ForeColor = System.Drawing.Color.Black;
+            this.ResultTextBox.Location = new System.Drawing.Point(0, 81);
             this.ResultTextBox.MaxLength = 17;
             this.ResultTextBox.Name = "ResultTextBox";
             this.ResultTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
@@ -360,11 +360,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(471, 537);
+            this.ClientSize = new System.Drawing.Size(468, 534);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(493, 593);
-            this.MinimumSize = new System.Drawing.Size(493, 593);
+            this.MaximumSize = new System.Drawing.Size(490, 590);
+            this.MinimumSize = new System.Drawing.Size(490, 590);
             this.Name = "Calculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";

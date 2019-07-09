@@ -14,7 +14,8 @@ namespace ProjectWinforms
     public partial class Calculator : Form
     {
         char[] delimiterChars = { '+', '-', '/', '*' };
-        DataTable dataTable = new DataTable();
+        Calculation calc = new Calculation();
+
         
         public Calculator()
         {
@@ -172,17 +173,8 @@ namespace ProjectWinforms
 
         private void GelijkButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                CalculationTextBox.Text = ResultTextBox.Text;
-                ResultTextBox.Text = dataTable.Compute(ResultTextBox.Text, null).ToString();
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Error, resetting values.");
-                Reset();
-            } 
+            CalculationTextBox.Text = ResultTextBox.Text;
+            ResultTextBox.Text = calc.Equals(ResultTextBox.Text, CalculationTextBox.Text);
         }
 
         private void PuntButton_Click(object sender, EventArgs e)
@@ -193,16 +185,8 @@ namespace ProjectWinforms
 
         private void PosNegButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                double numSwitch = Convert.ToDouble(ResultTextBox.Text);
-                numSwitch *= -1;
-                ResultTextBox.Text = numSwitch.ToString();
-            }
-            catch (Exception)
-            {
-
-            }
+            ResultTextBox.Text = calc.PosNeg(ResultTextBox.Text);
+            
         }
     }
 }
