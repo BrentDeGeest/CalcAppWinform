@@ -208,7 +208,6 @@
             this.CalculationTextBox.MaxLength = 10;
             this.CalculationTextBox.Name = "CalculationTextBox";
             this.CalculationTextBox.ReadOnly = true;
-            this.CalculationTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CalculationTextBox.Size = new System.Drawing.Size(438, 63);
             this.CalculationTextBox.TabIndex = 20;
             this.CalculationTextBox.Text = "";

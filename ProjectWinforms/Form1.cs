@@ -174,6 +174,7 @@ namespace ProjectWinforms
         {
             try
             {
+                CalculationTextBox.Text = ResultTextBox.Text;
                 ResultTextBox.Text = dataTable.Compute(ResultTextBox.Text, null).ToString();
             }
             catch (Exception)
@@ -192,11 +193,16 @@ namespace ProjectWinforms
 
         private void PosNegButton_Click(object sender, EventArgs e)
         {
-            double numSwitch = Convert.ToDouble(ResultTextBox.Text);
-            numSwitch *= -1;
-            ResultTextBox.Text = numSwitch.ToString();
+            try
+            {
+                double numSwitch = Convert.ToDouble(ResultTextBox.Text);
+                numSwitch *= -1;
+                ResultTextBox.Text = numSwitch.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
         }
-
-
     }
 }
