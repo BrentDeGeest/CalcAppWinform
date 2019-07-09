@@ -38,6 +38,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CalculationTextBox = new System.Windows.Forms.RichTextBox();
             this.ResultTextBox = new System.Windows.Forms.RichTextBox();
             this.PosNegButton = new System.Windows.Forms.Button();
             this.PuntButton = new System.Windows.Forms.Button();
@@ -172,6 +173,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel1.Controls.Add(this.CalculationTextBox);
             this.panel1.Controls.Add(this.ResultTextBox);
             this.panel1.Controls.Add(this.PosNegButton);
             this.panel1.Controls.Add(this.PuntButton);
@@ -194,17 +196,33 @@
             this.panel1.Controls.Add(this.button5);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(444, 516);
+            this.panel1.Size = new System.Drawing.Size(447, 519);
             this.panel1.TabIndex = 9;
+            // 
+            // CalculationTextBox
+            // 
+            this.CalculationTextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CalculationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.CalculationTextBox.ForeColor = System.Drawing.Color.White;
+            this.CalculationTextBox.Location = new System.Drawing.Point(0, 0);
+            this.CalculationTextBox.MaxLength = 10;
+            this.CalculationTextBox.Name = "CalculationTextBox";
+            this.CalculationTextBox.ReadOnly = true;
+            this.CalculationTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CalculationTextBox.Size = new System.Drawing.Size(438, 63);
+            this.CalculationTextBox.TabIndex = 20;
+            this.CalculationTextBox.Text = "";
             // 
             // ResultTextBox
             // 
             this.ResultTextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
             this.ResultTextBox.ForeColor = System.Drawing.Color.White;
-            this.ResultTextBox.Location = new System.Drawing.Point(3, 16);
+            this.ResultTextBox.Location = new System.Drawing.Point(0, 71);
+            this.ResultTextBox.MaxLength = 17;
             this.ResultTextBox.Name = "ResultTextBox";
-            this.ResultTextBox.Size = new System.Drawing.Size(438, 96);
+            this.ResultTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
+            this.ResultTextBox.Size = new System.Drawing.Size(438, 63);
             this.ResultTextBox.TabIndex = 19;
             this.ResultTextBox.Text = "";
             // 
@@ -380,6 +398,7 @@
         private System.Windows.Forms.Button PosNegButton;
         private System.Windows.Forms.Button PuntButton;
         private System.Windows.Forms.Button button0;
+        private System.Windows.Forms.RichTextBox CalculationTextBox;
     }
 }
 

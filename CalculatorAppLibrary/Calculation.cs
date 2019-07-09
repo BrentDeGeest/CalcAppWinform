@@ -4,17 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace CalculatorAppLibrary
 {
-    public class Class1
+    public class Calculation
     {
         
 
 
-        private void Reset()
+        public string CalcCalculation(string result)
         {
-            
+
+
+
+
+            return result;
         }
     }
 }
