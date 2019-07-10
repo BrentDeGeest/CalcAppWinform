@@ -220,6 +220,7 @@
             this.ResultTextBox.Location = new System.Drawing.Point(0, 81);
             this.ResultTextBox.MaxLength = 17;
             this.ResultTextBox.Name = "ResultTextBox";
+            this.ResultTextBox.ReadOnly = true;
             this.ResultTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.ResultTextBox.Size = new System.Drawing.Size(438, 63);
             this.ResultTextBox.TabIndex = 19;

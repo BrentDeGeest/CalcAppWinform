@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalculatorAppLibrary;
+using System.Diagnostics;
 
 namespace ProjectWinforms
 {
@@ -16,7 +17,12 @@ namespace ProjectWinforms
         char[] delimiterChars = { '+', '-', '/', '*' };
         Calculation calc = new Calculation();
 
-        
+        double num1;
+        double num2;
+
+        string oper; 
+
+
         public Calculator()
         {
             InitializeComponent();
@@ -26,32 +32,33 @@ namespace ProjectWinforms
         {
 
         }
-        /*
-        private void ResultTextBox_TextChanged(object sender, EventArgs e)
+
+        private void GetNumber() // Zet num1 of num2 op het nummer in de textbox
         {
-            int newNum;
-            string[] test = ResultTextBox.Text.Split(delimiterChars);
-            foreach (string num in test)
+            string[] nummers = ResultTextBox.Text.Split(delimiterChars);
+            foreach (string num in nummers)
             {
-                if(num != null && num != "")
+                if (num != null && num != "")
                 {
-                    Console.WriteLine(num);
-                    newNum = Convert.ToInt32(num);
-                    if (temp1 == 0)
+                    if (num1 == 0)
                     {
-                        temp1 = newNum;
+                        num1 = Convert.ToDouble(num);
+
                     }
                     else
                     {
-                        temp2 = newNum;
+                        num2 = Convert.ToDouble(num);
                     }
+                    Debug.WriteLine("nummer 1(GetNumber): " + num1);
+                    Debug.WriteLine("nummer 2(GetNumber): " + num2);
+
                 }
             }
         }
-        */
+
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (ResultTextBox.Text.Length < 10)
+            if (ResultTextBox.Text.Length < 10|| num1 != 0)
                 ResultTextBox.Text += '1';
         }
 
@@ -122,7 +129,10 @@ namespace ProjectWinforms
         {
             ResultTextBox.Text = "";
             CalculationTextBox.Text = "";
-            
+            num1 = 0;
+            num2 = 0;
+            Debug.WriteLine("nummer 1(Reset): " + num1);
+            Debug.WriteLine("nummer 2(Reset): " + num2);
         }
 
 
@@ -148,38 +158,69 @@ namespace ProjectWinforms
 
         private void DeelButton_Click(object sender, EventArgs e)
         {
-            ResultTextBox.Text += "/";
+            GetNumber();
+
+            oper = "/";
+            CalculationTextBox.Text = num1.ToString() + " / ";
+            ResultTextBox.Text = "";
 
         }
 
         private void MaalButton_Click(object sender, EventArgs e)
         {
-            ResultTextBox.Text += "*";
+            GetNumber();
+
+            oper = "*";
+            CalculationTextBox.Text = num1.ToString() + " * ";
+            ResultTextBox.Text = "";
 
         }
 
         private void MinButton_Click(object sender, EventArgs e)
         {
-            ResultTextBox.Text += "-";
+            GetNumber();
+
+            oper = "-";
+            CalculationTextBox.Text = num1.ToString() + " - ";
+            ResultTextBox.Text = "";
 
 
         }
 
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            ResultTextBox.Text += "+";
+            GetNumber();
 
+            oper = "+";
+            CalculationTextBox.Text = num1.ToString() + " + ";
+            ResultTextBox.Text = "";
         }
 
         private void GelijkButton_Click(object sender, EventArgs e)
         {
-            CalculationTextBox.Text = ResultTextBox.Text;
-            ResultTextBox.Text = calc.Equals(ResultTextBox.Text, CalculationTextBox.Text);
+            GetNumber();
+            CalculationTextBox.Text += ResultTextBox.Text;
+            switch (oper)
+            {
+                case "+": num1 += num2; num2 = 0; break;
+                case "-": num1 -= num2; num2 = 0; break;
+                case "*": num1 *= num2; num2 = 0; break;
+                case "/": num1 /= num2; num2 = 0; break;
+                default:
+                    break;
+            }
+            CalculationTextBox.Text = num1.ToString();
+            Debug.WriteLine("nummer 1(GelijkAan): " + num1);
+            Debug.WriteLine("nummer 2(GelijkAan): " + num2);
+            //CalculationTextBox.Text = "";
+
+            //CalculationTextBox.Text = ResultTextBox.Text;
+            //ResultTextBox.Text = calc.Equals(ResultTextBox.Text, CalculationTextBox.Text);
         }
 
         private void PuntButton_Click(object sender, EventArgs e)
         {
-            ResultTextBox.Text += ".";
+            ResultTextBox.Text += ",";
 
         }
 
@@ -188,5 +229,7 @@ namespace ProjectWinforms
             ResultTextBox.Text = calc.PosNeg(ResultTextBox.Text);
             
         }
+
+        
     }
 }
