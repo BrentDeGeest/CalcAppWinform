@@ -14,7 +14,7 @@ namespace ProjectWinforms
 {
     public partial class Calculator : Form
     {
-        char[] delimiterChars = { '+', '-', '/', '*' };
+        char[] delimiterChars = { '+', '/', '*' };
         Calculation calc = new Calculation();
 
         double num1;
