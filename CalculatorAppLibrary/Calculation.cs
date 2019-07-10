@@ -4,34 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-
+using System.Diagnostics;
 
 namespace CalculatorAppLibrary
 {
     public class Calculation
     {
-        DataTable dataTable = new DataTable();
-
-
-        public string Equals(string resultText, string calculationText)
+        public void ConvertNumbers(ref double num1, ref double num2, string num)
         {
-
-            try
+            if (num != null && num != "")
             {
-                calculationText = resultText;
-                return resultText = dataTable.Compute(resultText, null).ToString();
+                if (num1 == 0)
+                {
+                    num1 = Convert.ToDouble(num);
+
+                }
+                else
+                {
+                    num2 = Convert.ToDouble(num);
+                }
+                Debug.WriteLine("nummer 1(GetNumber): " + num1);
+                Debug.WriteLine("nummer 2(GetNumber): " + num2);
+
             }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Error, resetting values.");
-                return "";
-            }
-
-
-            
         }
-
 
         public string PosNeg( string resultaat)
         {

@@ -28,31 +28,12 @@ namespace ProjectWinforms
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void GetNumber() // Zet num1 of num2 op het nummer in de textbox
         {
             string[] nummers = ResultTextBox.Text.Split(delimiterChars);
             foreach (string num in nummers)
             {
-                if (num != null && num != "")
-                {
-                    if (num1 == 0)
-                    {
-                        num1 = Convert.ToDouble(num);
-
-                    }
-                    else
-                    {
-                        num2 = Convert.ToDouble(num);
-                    }
-                    Debug.WriteLine("nummer 1(GetNumber): " + num1);
-                    Debug.WriteLine("nummer 2(GetNumber): " + num2);
-
-                }
+                calc.ConvertNumbers(ref num1, ref num2, num);
             }
         }
 
@@ -135,8 +116,6 @@ namespace ProjectWinforms
             Debug.WriteLine("nummer 2(Reset): " + num2);
         }
 
-
-
         private void ButtonClear_Click(object sender, EventArgs e)
         {
             Reset();
@@ -152,8 +131,6 @@ namespace ProjectWinforms
             {
 
             }
-            
-
         }
 
         private void DeelButton_Click(object sender, EventArgs e)
@@ -163,7 +140,6 @@ namespace ProjectWinforms
             oper = "/";
             CalculationTextBox.Text = num1.ToString() + " / ";
             ResultTextBox.Text = "";
-
         }
 
         private void MaalButton_Click(object sender, EventArgs e)
@@ -173,7 +149,6 @@ namespace ProjectWinforms
             oper = "*";
             CalculationTextBox.Text = num1.ToString() + " * ";
             ResultTextBox.Text = "";
-
         }
 
         private void MinButton_Click(object sender, EventArgs e)
@@ -183,8 +158,6 @@ namespace ProjectWinforms
             oper = "-";
             CalculationTextBox.Text = num1.ToString() + " - ";
             ResultTextBox.Text = "";
-
-
         }
 
         private void PlusButton_Click(object sender, EventArgs e)
@@ -206,28 +179,21 @@ namespace ProjectWinforms
                 case "-": num1 -= num2; num2 = 0; break;
                 case "*": num1 *= num2; num2 = 0; break;
                 case "/": num1 /= num2; num2 = 0; break;
-                default:
-                    break;
+                default: break;
             }
             CalculationTextBox.Text = num1.ToString();
             Debug.WriteLine("nummer 1(GelijkAan): " + num1);
             Debug.WriteLine("nummer 2(GelijkAan): " + num2);
-            //CalculationTextBox.Text = "";
-
-            //CalculationTextBox.Text = ResultTextBox.Text;
-            //ResultTextBox.Text = calc.Equals(ResultTextBox.Text, CalculationTextBox.Text);
         }
 
         private void PuntButton_Click(object sender, EventArgs e)
         {
             ResultTextBox.Text += ",";
-
         }
 
         private void PosNegButton_Click(object sender, EventArgs e)
         {
             ResultTextBox.Text = calc.PosNeg(ResultTextBox.Text);
-            
         }
 
         
